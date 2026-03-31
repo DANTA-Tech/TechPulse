@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>多源资讯聚合</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span>TechPulse 多源资讯聚合</span>
+        </div>
+        <button id="refreshBtn" class="btn-primary" type="button">手动刷新</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="main-grid">
+        <aside class="side-area">
+          <section class="custom-panel" aria-label="自定义网页链接">
+            <div class="custom-header">
+              <div>
+                <div class="custom-title">自定义网页链接</div>
+                <div class="custom-subtitle">把真实 URL 加到资讯流中（支持已读/收藏/搜索/跳转原文）</div>
+              </div>
+              <button id="btnClearCustom" class="btn-secondary" type="button">清空</button>
+            </div>
+
+            <div class="custom-form">
+              <div class="field">
+                <label for="customUrl">URL</label>
+                <input id="customUrl" type="url" placeholder="https://..." />
+              </div>
+
+              <div class="field">
+                <label for="customTitle">标题（可选）</label>
+                <input id="customTitle" type="text" placeholder="留空则用域名" />
+              </div>
+
+              <div class="field">
+                <label for="customSummary">摘要（可选）</label>
+                <input id="customSummary" type="text" placeholder="一句话摘要" />
+              </div>
+
+              <div class="field">
+                <label for="customSource">来源（可选）</label>
+                <input id="customSource" type="text" placeholder="例如 个人收藏" />
+              </div>
+
+              <div class="field">
+                <label for="customCategories">类别（多选，逗号分隔）</label>
+                <input id="customCategories" type="text" placeholder="AI, 内容生态" />
+              </div>
+            </div>
+
+            <div class="custom-actions">
+              <button id="btnAddCustom" class="btn-primary" type="button">添加到资讯流</button>
+            </div>
+
+            <div id="customList" class="custom-list"></div>
+          </section>
+        </aside>
+
+        <section class="feed-area">
+          <section class="toolbar">
+            <div class="toolbar-top">
+              <label class="search-box" for="searchInput">
+                <span class="search-label">搜索</span>
+                <input id="searchInput" type="text" placeholder="按标题、摘要、来源搜索关键词..." />
+              </label>
+              <label class="sort-box" for="rangeSelect">
+                <span class="search-label">时间范围</span>
+                <select id="rangeSelect">
+                  <option value="all">全部时间</option>
+                  <option value="24h">最近 24 小时</option>
+                  <option value="3d">最近 3 天</option>
+                  <option value="7d">最近 7 天</option>
+                </select>
+              </label>
+              <label class="sort-box" for="sortSelect">
+                <span class="search-label">时间排序</span>
+                <select id="sortSelect">
+                  <option value="latest">最新优先</option>
+                  <option value="oldest">最早优先</option>
+                </select>
+              </label>
+            </div>
+            <div id="categoryTabs" class="category-tabs"></div>
+            <div id="statusTabs" class="status-tabs"></div>
+          </section>
+
+          <section>
+            <div id="resultInfo" class="result-info"></div>
+            <div id="newsGrid" class="news-grid"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+

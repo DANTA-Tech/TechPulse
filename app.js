@@ -577,7 +577,7 @@ function renderNews() {
     ? state.selectedCategories.join("、")
     : "全部";
   resultInfo.textContent = state.loading
-    ? "正在从公开 RSS 拉取资讯..."
+    ? "正在从公开 RSS 拉取资讯,请稍后..."
     : `当前分类：${categoryText}｜状态：${state.statusFilter}｜时间范围：${getRangeLabel()}｜共 ${list.length} 条资讯`;
 
   if (!list.length) {
